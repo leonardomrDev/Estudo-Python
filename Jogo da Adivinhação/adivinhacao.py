@@ -5,22 +5,25 @@ dificuldade = 0
 tentativa = 0
 def escolha_dificuldade(dificuldade):
     global numero_sorteado
-    while dificuldade < 1:   
+    while dificuldade < 1 or dificuldade >= 4:   
         dificuldade = int(input("Qual será a dificuldade? 1 - Fácil, 2 - Médio e 3 - Difícil: "))
-    if dificuldade < 1:
+    if dificuldade < 1 or dificuldade >= 4:
         print("Por favor, escolha uma opção válida")
     elif dificuldade == 1:
         numero_sorteado = random.randint(1, 10)
-        print(numero_sorteado)
+        #tentativa = int(input("Qual o número sorteado?: "))
+        # if tentativa < 0 or tentativa > 10:
+        #     print("Por favor, para a dificuldade fácil a jogada mínima é 0 e máxima 10")
+        #     pass
+        #print(numero_sorteado)
     elif dificuldade == 2:
         numero_sorteado = random.randint(1,50)
-        print(numero_sorteado)
+        #print(numero_sorteado)
     else:
         numero_sorteado = random.randint(1,100)
-        print(numero_sorteado)
-    return numero_sorteado
+        #print(numero_sorteado)
+    return numero_sorteado, dificuldade
 def jogada(numero_sorteado, tentativa):
-    print(numero_sorteado)
     for i in range(1,4):
         tentativa = int(input("Qual o número sorteado?: "))
         if tentativa == numero_sorteado:
