@@ -10,6 +10,7 @@ def jogar():
     palavra_secreta = "BANANA"
     enforcou = False
     acertou = False
+    erros = 0
     index = 0
     letras_corretas = ["_", "_", "_", "_", "_", "_"]
     letras_faltando = str(letras_corretas.count('_'))
@@ -24,6 +25,8 @@ def jogar():
                 #print(f'Ainda faltam {letras_faltando} letras!')
             index = index + 1
             print(f'Ainda faltam {letras_faltando}')
+        else:
+            erros = erros + 1    
         print("Jogando...")
         print(letras_corretas)
         print("Fim de Jogo!! Obrigado por Jogar!")
