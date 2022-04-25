@@ -1,22 +1,30 @@
+import random
 import time
 
 def jogar():
     print("Início do Jogo da Forca!!")
     time.sleep(0.5)
+    palavras = []
     print("\n")
-    print('Temas disponíveis: (1) Comidas e (2) Sem tema específico')
+    print('Temas disponíveis: (1) Alimentos e (2) Sem tema específico')
     print('\n')
     time.sleep(1)
     tema = int(input('Qual será o tema da partida?: '))
     match tema:
         case 1:
-            open('comidas.txt', 'r')
+            alimentos = open('alimentos.txt', 'r')
             time.sleep(0.5)
-            print('Jogaremos utilizando como base o tema de Comidas!')
+            print('Jogaremos utilizando como base o tema de Alimentos!')
+            for linha in alimentos:
+                palavras.append(linha.strip())
+            alimentos.close()
         case 2:
-            open('words.txt', 'r')
+            semtema = open('words.txt', 'r')
             time.sleep(0.5)
             print('Jogaremos utilizando nenhum tema específico!')
+            for linha in semtema:
+                palavras.append(linha.strip())
+            semtema.close()
         case _:
             time.sleep(0.5)
             print('Escolha inválida!')
@@ -24,7 +32,8 @@ def jogar():
             print(f'Fechando o jogo! ({tema}) não é uma opção válida.')
             time.sleep(0.5)
             quit()
-    palavra_secreta = "CACHORRO"
+    
+    palavra_secreta = palavras[random.randrange(0, len(palavras))]
     enforcou = False
     acertou = False
     erros = 0
