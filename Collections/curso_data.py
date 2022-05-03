@@ -61,3 +61,5 @@ for word in txt.split():
 for  key, value in info.items():
     print(f'{key} possui {value} anos!')
 print(Counter(txt.split()))
+
+# git
